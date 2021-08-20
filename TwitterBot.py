@@ -2,14 +2,11 @@
     Author: Dinah Johnson
 
 """
-
-from newsapi import NewsApiClient
-from api_key import my_api_key         
+from newsapi import NewsApiClient       
 import datetime
 import time
 import tweepy
-import schedule
-from credentials import *  
+import schedule 
 
 todays_date = datetime.date.today()
 news_api = NewsApiClient(api_key=my_api_key) 
@@ -41,4 +38,3 @@ def job():
         time.sleep(1800)
 
 job()
-#schedule.every().day.at("08:00").do(job())
