@@ -2,11 +2,18 @@
     Author: Dinah Johnson
 
 """
-from newsapi import NewsApiClient       
+from os import environ
+from newsapi import NewsApiClient   
 import datetime
 import time
 import tweepy
 import schedule 
+
+my_api_key = environ['my_api_key']
+ACCESS_SECRET = environ['ACCESS_SECRET']
+ACCESS_TOKEN = environ['ACCESS_TOKEN']
+CONSUMER_KEY = environ['CONSUMER_KEY']
+CONSUMER_SECRET =environ['CONSUMER_SECRET']
 
 todays_date = datetime.date.today()
 news_api = NewsApiClient(api_key=my_api_key) 
