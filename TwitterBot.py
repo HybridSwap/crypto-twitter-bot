@@ -40,4 +40,5 @@ def job():
         api.update_status(tweet)
         time.sleep(1800)
 
-schedule.every().hour.at("08:00").do(job())
+job()
+#schedule.every().day.at("08:00").do(job())
