@@ -7,7 +7,6 @@ from newsapi import NewsApiClient
 import datetime
 import time
 import tweepy
-import schedule 
 
 my_api_key = environ['my_api_key']
 ACCESS_SECRET = environ['ACCESS_SECRET']
@@ -41,7 +40,8 @@ def getList():
 def job():
     tweets = getList()
     for tweet in tweets:
-        api.update_status(tweet)
+        #api.update_status(tweet)
+        print(tweet)
         time.sleep(1800)
 
 job()
