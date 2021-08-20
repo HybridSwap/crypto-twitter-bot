@@ -40,8 +40,7 @@ def getList():
 def job():
     tweets = getList()
     for tweet in tweets:
-        #api.update_status(tweet)
-        print(tweet)
+        api.update_status(tweet)
         time.sleep(1800)
 
 job()
