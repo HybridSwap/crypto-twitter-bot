@@ -35,12 +35,17 @@ def getList():
     links = []
     for article in articles:
         links.append(article['url'])
+    links = list(set(links))    
     return links
 
 def job():
     tweets = getList()
     for tweet in tweets:
-        api.update_status(tweet)
-        time.sleep(1800)
+        try: 
+            api.update_status(tweet)
+            time.sleep(1800)
+        except tweepy.TweepError as error:
+            if error.api_code == 187:
+                continue
 
 job()
