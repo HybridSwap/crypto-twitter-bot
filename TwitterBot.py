@@ -14,28 +14,31 @@ ACCESS_TOKEN = environ['ACCESS_TOKEN']
 CONSUMER_KEY = environ['CONSUMER_KEY']
 CONSUMER_SECRET= environ['CONSUMER_SECRET']
 
-todays_date = datetime.date.today()
+today = datetime.date.today()
 news_api = NewsApiClient(api_key=my_api_key) 
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
 api = tweepy.API(auth)
+error_tweet = "Uh oh @cybergirldinah something went wrong! Please get me back up and running soon."
  
 def fetch():
     try:
-        data = news_api.get_everything(q='cryptocurrency',from_param=todays_date,
-                                to=todays_date,language='en',
+        data = news_api.get_everything(q='cryptocurrency',from_param=today,
+                                to=today,language='en',
                                 sort_by='relevancy',
                                 page_size=40)
         return data['articles']
     except:
-        print("API error")
+        api.update_status(error_tweet)
     
 def getList():
     articles = fetch()
-    links = []
-    for article in articles:
-        links.append(article['url'])
-    links = list(set(links))    
+    if len(articles) > 0:
+        links = [article['url'] for article in articles]
+    else:
+        api.update_status(error_tweet)
+    
+    links = list(set(links)) 
     return links
 
 def job():
@@ -43,9 +46,9 @@ def job():
     for tweet in tweets:
         try: 
             api.update_status(tweet)
-            time.sleep(1800)
         except tweepy.TweepError as error:
             if error.api_code == 187:
                 continue
+        time.sleep(1800)
 
 job()
