@@ -7,8 +7,9 @@ from newsapi import NewsApiClient
 import datetime
 import time
 import tweepy
+import logging
 
-my_api_key = environ['my_api_key']
+my_api_key = environ['1367218889860517894-7Y63vBnUNU0EQtv5imz38bssAFQNHP']
 ACCESS_SECRET = environ['uWuVahlfOBP7PDSKcUVr786Awp8nMNTqXROO0gHeun40V']
 ACCESS_TOKEN = environ['1367218889860517894-7Y63vBnUNU0EQtv5imz38bssAFQNHP']
 CONSUMER_KEY = environ['jWQEyZIOgfJGT0CtYXGL1XnTS']
