@@ -19,7 +19,7 @@ news_api = NewsApiClient(api_key=my_api_key)
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
 api = tweepy.API(auth)
-error_tweet = "Oops @Getinfotechent something went wrong! Please get me back up and running soon."
+error_tweet = "Oops @Getinfotechent @token_surge something went wrong! Please get me back up and running soon."
  
 def fetch():
     try:
