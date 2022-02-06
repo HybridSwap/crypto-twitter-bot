@@ -8,8 +8,8 @@ import datetime
 import time
 import tweepy
 
-
-ACCESS_SECRET = ['ACCESS_SECRET']
+my_api_key = environ['my_api_key']
+ACCESS_SECRET = environ['ACCESS_SECRET']
 ACCESS_TOKEN = environ['ACCESS_TOKEN']
 CONSUMER_KEY = environ['CONSUMER_KEY']
 CONSUMER_SECRET= environ['CONSUMER_KEY']
