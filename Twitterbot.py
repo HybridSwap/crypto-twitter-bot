@@ -8,14 +8,23 @@ import datetime
 import time
 import tweepy
 
-my_api_key = environ['my_api_key']
 ACCESS_SECRET = environ['ACCESS_SECRET']
 ACCESS_TOKEN = environ['ACCESS_TOKEN']
 CONSUMER_KEY = environ['CONSUMER_KEY']
 CONSUMER_SECRET= environ['CONSUMER_KEY']
 
-today = datetime.date.today()
-news_api = NewsApiClient(api_key=my_api_key) 
+# Init
+newsapi = NewsApiClient(api_key='3b968fb8dcb94113933ac4a01955e8a2')
+
+                                         
+                                         
+                                         
+                                     
+
+                                      
+                                                                   
+                                     
+                                                                                                today = datetime.date.today()
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
 api = tweepy.API(auth)
@@ -23,7 +32,7 @@ error_tweet = "Oops @Getinfotechent @token_surge something went wrong! Please ge
  
 def fetch():
     try:
-        data = news_api.get_everything(q='binance',from_param=today,
+        data = newsapi.get_everything(q='binance',from_param=today,
                                 to=today,language='en',
                                 sort_by='relevancy',
                                 page_size=40)
