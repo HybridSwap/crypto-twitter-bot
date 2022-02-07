@@ -24,7 +24,7 @@ newsapi = NewsApiClient(api_key='3b968fb8dcb94113933ac4a01955e8a2')
                                       
                                                                    
                                      
-                                                                                                today = datetime.date.today()
+today = datetime.date.today()
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
 api = tweepy.API(auth)
